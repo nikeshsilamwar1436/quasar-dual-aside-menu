@@ -1,0 +1,259 @@
+body {
+  background-color: light-page;
+}
+
+:root {
+  --pageNavigationMiniWidth: 60px;
+}
+
+.q-layout {
+  &.subpage {
+    .q-page-container {
+      padding-left: var(--pageNavigationMiniWidth) !important;
+    }
+  }
+}
+
+.q-page-container {
+  &:not(.drawer-collapsed) {
+    @media only screen and (min-width: 600px) {
+      padding-left: 300px !important;
+    }
+  }
+}
+.navigation {
+  .q-item {
+    &__section--avatar {
+      min-width: 44px;
+      align-items: center;
+    }
+
+    &.q-router-link--active,
+    &--active {
+      color: #fff;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.2);
+        inset: 0 6px 0 6px;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  .q-separator {
+    background-color: rgba(197, 60, 60, 0.3);
+    margin: 16px 8px;
+  }
+
+  &.hovered,
+  &.root {
+    .q-item {
+      &.q-router-link--active,
+      &--active {
+        &:before {
+          inset: 0 0 0 0;
+          border-radius: 0px;
+        }
+      }
+    }
+
+    .q-separator {
+      margin: 16px 16px;
+    }
+  }
+
+  &-secondary {
+    border-right: 1px solid rgba(rgb(239, 91, 22), 0.2);
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    width: 300px;
+    transition: transform 0.1s ease;
+    transform: translateX(0);
+    visibility: visible;
+    z-index: 3001;
+
+    .q-scrollarea {
+      background-color: #fff;
+    }
+
+    h1 {
+      font-size: inherit;
+      font-weight: bold;
+      background-color: var(--q-primary);
+      color: #fff;
+      line-height: 2rem;
+      margin: 0;
+      padding: 8px 8px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      &_back {
+        display: none;
+      }
+
+      background-color: #fff;
+      z-index: 2999 !important;
+      visibility: visible;
+      transform: translateX(60px);
+      width: 240px !important;
+
+      h1 {
+        padding: 1px 16px;
+      }
+    }
+
+    &.collapse {
+      transform: translateX(-100%);
+    }
+
+    .q-item {
+      color: lightblue;
+
+      &:before,
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      &:before {
+        left: 0;
+        opacity: 0.1;
+      }
+
+      &:after {
+        background-color: var(--q-primary);
+        width: 4px;
+        transform: scaleY(0);
+        transition: transform 0.2s ease;
+      }
+
+      &.q-router-link--active,
+      &--active {
+        font-weight: bold;
+        color: var(--q-primary);
+
+        &:after {
+          transform: scaleY(100%);
+        }
+
+        &:before {
+          background-color: var(--q-primary);
+        }
+      }
+
+      .q-focus-helper {
+        background-color: blue !important;
+
+        &:before {
+          background-color: blue !important;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  background-color: #fff;
+  color: lightblue;
+  height: 60px;
+  border-bottom: 1px solid rgba(lightblue, 0.2);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+
+  &_wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 60px;
+    z-index: 3002;
+    padding: 10px 16px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.2);
+      bottom: 0;
+      left: 10px;
+      right: 10px;
+      height: 1px;
+    }
+
+    &.mini {
+      &:after {
+        max-width: 40px;
+      }
+
+      .logo_toggle-app {
+        @media only screen and (min-width: 1024px) {
+          color: lightblue;
+        }
+      }
+    }
+  }
+
+  &_toggle-app {
+    padding-right: 8px;
+    padding-left: 8px;
+    color: #fff !important;
+  }
+}
+
+.add-new {
+  padding: 8px;
+
+  @media only screen and (min-width: 1024px) {
+    padding: 16px;
+    min-width: 600px;
+  }
+}
+
+.toggle-drawer {
+  &_desktop,
+  &_mobile {
+    color: lightblue;
+    position: fixed;
+  }
+
+  &_desktop {
+    bottom: 16px;
+    left: 16px;
+    z-index: 3000;
+    transform: rotate(180deg);
+    transition: all 0.25s ease;
+    display: none;
+
+    &.active {
+      left: 316px;
+      transform: rotate(0deg);
+    }
+
+    @media only screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &_mobile {
+    top: 16px;
+    right: 16px;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+}
