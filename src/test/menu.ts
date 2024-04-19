@@ -5,11 +5,11 @@ const menu = [
     subLink: [
       {
         name: 'Test Page',
-        path: '/',
+        path: '/test',
       },
       {
         name: 'Test Page 2',
-        path: '/table',
+        path: '/test2',
       },
     ],
   },

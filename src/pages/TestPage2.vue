@@ -1,6 +1,6 @@
-<template>
+﻿<template>
   <q-page class="row items-center justify-evenly">
-    <TableView :tableRows="row" :tableColumns="col" title="Test Page"/>
+    <TableView :tableRows="row" :tableColumns="col" title="Test Page 2"/>
   </q-page>
 </template>
 
